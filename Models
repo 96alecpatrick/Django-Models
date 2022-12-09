@@ -1,0 +1,50 @@
+from django.db import models
+from django.forms import EmailField, IntegerField, PasswordInput
+
+
+
+class Register(models.Model):
+    username = models.CharField(max_length = 20)
+    email = models.EmailField(max_length = 20, widget = EmailField())
+    password = models.CharField(max_length=20, widget = PasswordInput(), commit= False)
+    confirm_pass = models.CharField()
+
+def __str__(self, username, email, password, confirm_pass):
+    username = self.username
+    email = self.email
+    password = self.password
+    confirm_pass = self.password
+    return(username, email, password, confirm_pass)
+
+class LoginForm(models.Model):
+    id = models.IntegerField(max_length= 100)
+    email = models.CharField(max_length=20)
+    password = models.CharField(max_length = 15)
+
+
+def __str__(self, id, email, password):
+    self.email = email
+    self.id = id
+    self.password = password
+    return (email, id, password)
+
+
+class User(models.Model):
+    id = models.IntegerField(max_length = 100)
+    name = models.CharField(max_length = 20)
+    password = models.CharField(max_length = 20)
+
+class Profile():
+    token = models.CharField(max_length = 100)
+
+
+
+class Room(models.Model):
+    id  = models.CharField(max_length = 20, primary_key = True)
+    name = models.CharField(max_length = 15)
+    subject = models.CharField(max_length = 50)
+    body = models.CharField(max_length= 1000)
+
+
+
+    
